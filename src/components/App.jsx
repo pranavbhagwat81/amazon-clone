@@ -3,6 +3,7 @@ import React from "react";
 import Nav from "./Nav";
 import Home from "./Home";
 import "../index.css";
+import Login from "./Login";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
             <Nav />
             Checkout
           </Route>
-          <Route path="/login">Login</Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/">
             <Nav />
             <Home />
