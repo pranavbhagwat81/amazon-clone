@@ -12,6 +12,7 @@ function Home() {
       ></img>
       <div className="home__row">
         <Product
+          productIn="home"
           id="1312"
           price="$29"
           name="Roku Express HD Streaming Media Player 2019"
@@ -19,6 +20,7 @@ function Home() {
           img="https://images-na.ssl-images-amazon.com/images/I/41A+LoN2W3L._AC_US160_.jpg"
         ></Product>
         <Product
+          productIn="home"
           id="1313"
           price="$59"
           name="AMD Ryzen 5 3600 6-Core, 12-Thread Unlocked Desktop Processor with Wraith Stealth Cooler"
@@ -28,6 +30,7 @@ function Home() {
       </div>
       <div className="home__row">
         <Product
+          productIn="home"
           id="1314"
           price="$29"
           name="TP-Link AC750 WiFi Extender | Covers Up to 1200 Sq.ft and 20 Devices Up to 750Mbps| Dual Band WiFi Range Extender | WiFi Booster to Extend Range of WiFi Internet Connection (RE220)"
@@ -35,6 +38,7 @@ function Home() {
           img="https://images-na.ssl-images-amazon.com/images/I/311BvbMe2dL._AC_US160_.jpg"
         ></Product>
         <Product
+          productIn="home"
           id="1315"
           price="$319"
           name="Apple iPad (10.2-inch, Wi-Fi, 32GB) - Space Gray (Latest Model)"
@@ -42,6 +46,7 @@ function Home() {
           img="https://images-na.ssl-images-amazon.com/images/I/41h0H4SCgPL._AC_US160_.jpg"
         ></Product>
         <Product
+          productIn="home"
           id="1316"
           price="$62"
           name="Seagate Portable 2TB External Hard Drive Portable HDD – USB 3.0 for PC, Mac, PS4, & Xbox (STGX2000400)"

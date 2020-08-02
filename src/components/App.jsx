@@ -5,6 +5,7 @@ import Home from "./Home";
 import "../index.css";
 import Login from "./Login";
 import Signup from "./Signup";
+import Checkout from "./Checkout";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Nav />
-            Checkout
+            <Checkout />
           </Route>
           <Route path="/signup">
             <Signup />
