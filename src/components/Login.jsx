@@ -14,7 +14,7 @@ function Login() {
         <input
           type="text"
           className="login__usernameInput"
-          placeholder="Enter Username"
+          placeholder="Enter Email"
         ></input>
         <input
           type="password"

@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import "../index.css";
 import Login from "./Login";
+import Signup from "./Signup";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <Route path="/checkout">
             <Nav />
             Checkout
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/login">
             <Login />
