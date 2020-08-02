@@ -3,6 +3,7 @@ import React from "react";
 import Nav from "./Nav";
 import Home from "./Home";
 import "../index.css";
+import Product from "./Product";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="/login">Login</Route>
           <Route path="/">
             <Nav />
-            <Home></Home>
+            <Home />
           </Route>
         </Switch>
       </div>
