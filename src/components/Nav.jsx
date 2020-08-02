@@ -3,8 +3,9 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import { connect } from "react-redux";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav className="nav">
       {/**logo */}
@@ -42,10 +43,17 @@ function Nav() {
         <Link to="/checkout" className="nav__basketContainer">
           <ShoppingBasketIcon className="nav__basketIcon" />
         </Link>
-        <span className="nav__basket__itemcount">0</span>
+        <span className="nav__basket__itemcount">{props.cart.length}</span>
       </div>
     </nav>
   );
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    cart: state.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Nav);

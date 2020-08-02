@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.css";
+import { connect } from "react-redux";
+import { addProductToCart, removeProductFromCart } from "../actions";
 
-function Product({ price, name, rating, img }) {
+function Product(props) {
+  const [productInCart, setProductInCart] = useState(false);
+
   const renderName = (str, length, ending) => {
     if (str) {
       if (length == null) {
@@ -18,23 +22,69 @@ function Product({ price, name, rating, img }) {
     }
   };
 
+  const removeProductFromCart = () => {
+    props.removeProductFromCart(props);
+    setProductInCart(false);
+  };
+
+  const addProductToCart = () => {
+    props.addProductToCart(props);
+    setProductInCart(true);
+  };
+
   return (
     <div className="product">
-      <div className="product__info">{price}</div>
-      <div className="product__title">{renderName(name)}</div>
+      <div className="product__info">{props.price}</div>
+      <div className="product__title">{renderName(props.name)}</div>
       <div className="product__rating">
-        {Array(rating)
+        {Array(props.rating)
           .fill("")
           .map(() => {
-            return <p>⭐</p>;
+            return (
+              <p>
+                <span role="img">⭐</span>
+              </p>
+            );
           })}
       </div>
 
       <br />
-      <img tooltip={name} className="product__img" src={img} alt={name}></img>
-      <button className="product__button">Add To Basket</button>
+      <img
+        tooltip={props.name}
+        className="product__img"
+        src={props.img}
+        alt={props.name}
+      ></img>
+      <button
+        onClick={
+          productInCart
+            ? () => {
+                removeProductFromCart();
+              }
+            : () => {
+                addProductToCart();
+              }
+        }
+        className="product__button"
+      >
+        {productInCart ? "Remove from Basket" : "Add To Basket"}
+      </button>
     </div>
   );
 }
 
-export default Product;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    cart: state.cart,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    addProductToCart,
+    removeProductFromCart,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(Product);

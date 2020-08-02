@@ -3,7 +3,7 @@ import React from "react";
 import Nav from "./Nav";
 import Home from "./Home";
 import "../index.css";
-import Product from "./Product";
+
 function App() {
   return (
     <Router>
