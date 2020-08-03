@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "./Product.css";
 import { connect } from "react-redux";
-import { addProductToCart, removeProductFromCart } from "../actions";
+import {
+  addProductToCart,
+  removeProductFromCart,
+  addProductQuantityInCart,
+  decreaseProductQuantityInCart,
+} from "../actions";
 
 function Product(props) {
   const [productInCart, setProductInCart] = useState(false);
+  const [productQuantity, setproductQuantity] = useState(0);
 
   const renderName = (str, length, ending) => {
     if (str) {
@@ -22,29 +28,48 @@ function Product(props) {
     }
   };
 
-  const removeProductFromCart = () => {
-    props.removeProductFromCart(props);
-    setProductInCart(false);
+  const renderProductQuantity = () => {
+    let item_quantity = 0;
+    props.cart.forEach((item) => {
+      if (item.id === props.id) {
+        item_quantity = item.quantity;
+      }
+    });
+    return item_quantity || 0;
   };
 
-  const addProductToCart = () => {
-    props.addProductToCart(props);
-    setProductInCart(true);
+  const updateProductInHome = (operation) => {
+    if (operation === "add") {
+      props.addProductToCart(props);
+      setProductInCart(true);
+    } else if (operation === "remove") {
+      props.removeProductFromCart(props.id);
+      setProductInCart(false);
+    }
+    setproductQuantity(props.cart[props.id]?.quantity || 0);
+  };
+
+  const updateProductQuantityInCheckout = (operation) => {
+    if (operation === "add") {
+      props.addProductQuantityInCart(props.id);
+    } else if (operation === "remove") {
+      props.decreaseProductQuantityInCart(props.id);
+    }
   };
 
   if (props.productIn === "home") {
     return (
       <div className="product__home">
-        <div className="product__info">{props.price}</div>
+        <div className="product__info">{`$ ${props.price}`}</div>
         <div className="product__title">{renderName(props.name)}</div>
         <div className="product__rating">
           {Array(props.rating)
             .fill("")
             .map(() => {
               return (
-                <p>
-                  <span role="img">⭐</span>
-                </p>
+                <span role="img" aria-label="star">
+                  ⭐
+                </span>
               );
             })}
         </div>
@@ -60,10 +85,10 @@ function Product(props) {
           onClick={
             productInCart
               ? () => {
-                  removeProductFromCart();
+                  updateProductInHome("remove");
                 }
               : () => {
-                  addProductToCart();
+                  updateProductInHome("add");
                 }
           }
           className="product__button"
@@ -76,11 +101,27 @@ function Product(props) {
     return (
       <div className="product__checkout">
         <div className="product__checkoutName">{props.name}</div>
-        <div className="product__checkoutPrice">{props.price}</div>
+        <div className="product__checkoutPrice">{`$ ${props.price}`}</div>
         <div className="product__checkoutQuantity">
-          <button className="product__checkout__Btn">+</button>
-          <span className="product__quantity">5</span>
-          <button className="product__checkout__Btn">-</button>
+          <button
+            onClick={() => {
+              updateProductQuantityInCheckout("add");
+            }}
+            className="product__checkout__Btn"
+          >
+            +
+          </button>
+          <span className="product__quantity">
+            {props.cart[props.id].quantity}
+          </span>
+          <button
+            onClick={() => {
+              updateProductQuantityInCheckout("remove");
+            }}
+            className="product__checkout__Btn"
+          >
+            -
+          </button>
         </div>
         {/** product name */}
         {/** product price*/}
@@ -102,6 +143,8 @@ const mapDispatchToProps = () => {
   return {
     addProductToCart,
     removeProductFromCart,
+    addProductQuantityInCart,
+    decreaseProductQuantityInCart,
   };
 };
 

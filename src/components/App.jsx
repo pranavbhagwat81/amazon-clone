@@ -12,17 +12,21 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
-          <Route path="/checkout">
+          <Route path="/checkout" exact>
             <Nav />
             <Checkout />
           </Route>
-          <Route path="/signup">
+          <Route path="/signup" exact>
             <Signup />
           </Route>
-          <Route path="/login">
+          <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
+            <Nav />
+            <Home />
+          </Route>
+          <Route path="/home" exact>
             <Nav />
             <Home />
           </Route>

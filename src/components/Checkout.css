@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+.checkout__list {
+  border: 1px solid black;
+  margin: 0px 20px 0px 20px;
+  padding: 15px 15px 15px 15px;
+}
+
 .checkout__logo {
   align-items: center;
   justify-content: center;
@@ -22,4 +28,27 @@
   margin-left: 20px;
   margin-top: 40px;
   margin-bottom: 25px;
+}
+
+.checkout__confirm {
+  padding: 20px 10px 20px 10px;
+}
+.checkout__totalAmount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.checkout__confirmBtnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout__confirmBtn {
+  font-size: 30px;
+  padding: 10px 10px 10px 10px;
+  background-image: linear-gradient(to bottom, #ffc226, #ffd774);
 }

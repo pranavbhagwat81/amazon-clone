@@ -24,8 +24,12 @@ function Nav(props) {
       <div className="nav__nav">
         <Link to="/login" className="nav__link">
           <div className="nav__option">
-            <span className="nav__optionLineOne">Hello P</span>
-            <span className="nav__optionLineTwo">Sign In</span>
+            <span className="nav__optionLineOne">{`Hello  ${
+              props.user?.displayName || ""
+            }`}</span>
+            <span className="nav__optionLineTwo">
+              {props.user?.displayName ? "" : "Sign In"}
+            </span>
           </div>
         </Link>
         <Link to="/checkout" className="nav__link">
@@ -43,7 +47,9 @@ function Nav(props) {
         <Link to="/checkout" className="nav__basketContainer">
           <ShoppingBasketIcon className="nav__basketIcon" />
         </Link>
-        <span className="nav__basket__itemcount">{props.cart.length}</span>
+        <span className="nav__basket__itemcount">
+          {Object.keys(props.cart).length}
+        </span>
       </div>
     </nav>
   );
@@ -53,6 +59,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     cart: state.cart,
+    user: state.user,
   };
 };
 
