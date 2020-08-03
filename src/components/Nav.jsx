@@ -30,7 +30,7 @@ function Nav(props) {
             </span>
           </div>
         </Link>
-        <Link to="/checkout" className="nav__link">
+        <Link to="/order" className="nav__link">
           <div className="nav__option">
             <span className="nav__optionLineOne">Return</span>
             <span className="nav__optionLineTwo">Orders</span>

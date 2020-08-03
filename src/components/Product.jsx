@@ -129,6 +129,16 @@ function Product(props) {
         {/** */}
       </div>
     );
+  } else if (props.productIn === "orderedProducts") {
+    return (
+      <div className="product__order">
+        <div className="product__orderName">{props.name}</div>
+        <div className="product__orderPrice">{`$ ${props.price}`}</div>
+        <div className="product__orderQuantity">
+          <span className="product__quantity">{props.quantity}</span>
+        </div>
+      </div>
+    );
   }
 }
 

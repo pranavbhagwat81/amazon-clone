@@ -16,7 +16,7 @@ function Checkout(props) {
   };
 
   return (
-    <div className="checkout">
+    <div className="orderedProducts">
       <img
         src="https://pngimg.com/uploads/amazon/amazon_PNG6.png"
         alt="amazon_logo"

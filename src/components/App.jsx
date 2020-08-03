@@ -6,6 +6,7 @@ import "../index.css";
 import Login from "./Login";
 import Signup from "./Signup";
 import Checkout from "./Checkout";
+import Order from "./Order";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           <Route path="/home" exact>
             <Nav />
             <Home />
+          </Route>
+          <Route path="/order">
+            <Order />
           </Route>
         </Switch>
       </div>
