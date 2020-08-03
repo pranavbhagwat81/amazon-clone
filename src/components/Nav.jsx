@@ -24,11 +24,9 @@ function Nav(props) {
       <div className="nav__nav">
         <Link to="/login" className="nav__link">
           <div className="nav__option">
-            <span className="nav__optionLineOne">{`Hello  ${
-              props.user?.displayName || ""
-            }`}</span>
+            <span className="nav__optionLineOne">Hello </span>
             <span className="nav__optionLineTwo">
-              {props.user?.displayName ? "" : "Sign In"}
+              {props.user?.displayName ? props.user?.displayName : "Sign In"}
             </span>
           </div>
         </Link>
