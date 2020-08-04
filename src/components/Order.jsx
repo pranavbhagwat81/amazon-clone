@@ -8,26 +8,51 @@ function Order(props) {
   const [orderedProducts, setorderedProducts] = useState(null);
 
   useEffect(() => {
-    let productsByUser = {};
-    let userId = "5000"; //get this from props.
-    db.collection("user_cart").onSnapshot((usercartdocs) => {
-      usercartdocs.docs.forEach((usercartdoc) => {
-        console.log(usercartdoc.data().userid);
-        console.log(usercartdoc.id);
-        if (usercartdoc.data().userid === userId) {
-          db.collection("user_cart")
-            .doc(usercartdoc.id)
-            .collection("products")
-            .onSnapshot((snapshot) => {
-              snapshot.forEach((proddoc) => {
-                productsByUser[proddoc.id] = proddoc.data();
-                console.log(proddoc.data());
-              });
-              setorderedProducts(productsByUser);
-            });
-        }
-      });
-    });
+    let productCart = {};
+    if (props.user?.uid) {
+      db.collection("user_cart")
+        .doc(props.user?.uid)
+        .collection("products")
+        .onSnapshot((snapshot) => {
+          snapshot.docs.forEach((doc) => {
+            console.log(doc.data());
+            productCart[doc.data().id] = doc.data();
+          });
+          setorderedProducts(productCart);
+        });
+      // .then((doc) => {
+      //   console.log(doc.data());
+      //   //setorderedProducts(doc.data());
+      // });
+    }
+
+    //WORKING CODE
+    // db.collection("user_cart").onSnapshot((snapshot) => {
+    //   snapshot.docs.forEach((doc) => {
+    //     if(props.user.uid === )
+    //     console.log(doc.id);
+    //     console.log(doc.data());
+    //   });
+    // });
+
+    // db.collection("user_cart").onSnapshot((usercartdocs) => {
+    //   usercartdocs.docs.forEach((usercartdoc) => {
+    //     console.log(usercartdoc.data().userid);
+    //     console.log(usercartdoc.id);
+    //     if (usercartdoc.data().userid === userId) {
+    //       db.collection("user_cart")
+    //         .doc(usercartdoc.id)
+    //         .collection("products")
+    //         .onSnapshot((snapshot) => {
+    //           snapshot.forEach((proddoc) => {
+    //             productsByUser[proddoc.id] = proddoc.data();
+    //             console.log(proddoc.data());
+    //           });
+    //           setorderedProducts(productsByUser);
+    //         });
+    //     }
+    //   });
+    // });
   }, []);
 
   const renderTotalAmount = () => {

@@ -1,11 +1,10 @@
 import React from "react";
 import Product from "./Product";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Order from "./Order";
-import Nav from "./Nav";
+import { db } from "../firebase";
+
 import history from "../history";
 
 function Checkout(props) {
@@ -20,10 +19,30 @@ function Checkout(props) {
   };
 
   const onOrderConfirm = () => {
-    console.log("In order confirm method");
-    //inserting products in firebase.
-    //REdirect to Orders Page
-    history.push("/order");
+    var batch = db.batch();
+
+    Object.keys(props.cart).forEach((productID) => {
+      // console.log(props.user?.uid);
+      // console.log(productID);
+      batch.set(
+        db
+          .collection("user_cart")
+          .doc(props.user?.uid)
+          .collection("products")
+          .doc(productID),
+        props.cart[productID]
+      );
+    });
+
+    batch
+      .commit()
+      .then(function () {
+        console.log("All documents stored successfully");
+        history.push("/order");
+      })
+      .catch(function (error) {
+        console.error("Error writing document: ", error);
+      });
   };
 
   if (props.user?.email) {
