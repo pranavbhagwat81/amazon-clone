@@ -10,7 +10,6 @@ import {
 
 function Product(props) {
   const [productInCart, setProductInCart] = useState(false);
-  const [productQuantity, setproductQuantity] = useState(0);
 
   const renderName = (str, length, ending) => {
     if (str) {
@@ -28,16 +27,6 @@ function Product(props) {
     }
   };
 
-  const renderProductQuantity = () => {
-    let item_quantity = 0;
-    props.cart.forEach((item) => {
-      if (item.id === props.id) {
-        item_quantity = item.quantity;
-      }
-    });
-    return item_quantity || 0;
-  };
-
   const updateProductInHome = (operation) => {
     if (operation === "add") {
       props.addProductToCart(props);
@@ -46,7 +35,6 @@ function Product(props) {
       props.removeProductFromCart(props.id);
       setProductInCart(false);
     }
-    setproductQuantity(props.cart[props.id]?.quantity || 0);
   };
 
   const updateProductQuantityInCheckout = (operation) => {
@@ -101,7 +89,7 @@ function Product(props) {
     return (
       <div className="product__checkout">
         <div className="product__checkoutName">{props.name}</div>
-        <div className="product__checkoutPrice">{`$ ${props.price}`}</div>
+        <div className="product__checkoutPrice">{`$${props.price}`}</div>
         <div className="product__checkoutQuantity">
           <button
             onClick={() => {
@@ -143,7 +131,7 @@ function Product(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //consolelog(state);
   return {
     cart: state.cart,
   };

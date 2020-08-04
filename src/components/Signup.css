@@ -18,12 +18,13 @@
 }
 
 .signup__form {
-  width: 50%;
+  width: 80%;
+  max-width: 800px;
   justify-content: center;
   align-items: center;
   padding: 40px;
   border: 1px solid grey;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
@@ -75,6 +76,9 @@
 }
 
 .signup__signupBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto 10px auto;
   padding: 10px 0px 10px 0px;
   border: 1px solid black;
@@ -82,7 +86,8 @@
   font-size: large;
   background-image: #dfe2e7;
   height: 6vh;
-  width: 100%;
-  margin: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
 }

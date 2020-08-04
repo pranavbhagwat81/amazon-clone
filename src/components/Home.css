@@ -1,7 +1,6 @@
 .amazon_bannerImg {
   width: 100%;
-
-  max-height: 70vh;
+  max-height: 90vh;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   margin-bottom: -100px;
   z-index: -1;
@@ -10,8 +9,8 @@
 .home__row {
   display: flex;
   z-index: 1;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-right: 14px;
+  margin-left: 0px;
 }
 
 @media only screen and (max-width: 450px) {

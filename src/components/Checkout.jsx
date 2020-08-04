@@ -2,7 +2,6 @@ import React from "react";
 import Product from "./Product";
 import "./Checkout.css";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { db } from "../firebase";
 import { emptyCart } from "../actions";
 import history from "../history";
@@ -23,8 +22,8 @@ function Checkout(props) {
       var batch = db.batch();
 
       Object.keys(props.cart).forEach((productID) => {
-        // console.log(props.user?.uid);
-        // console.log(productID);
+        // //consolelog(props.user?.uid);
+        // //consolelog(productID);
         batch.set(
           db
             .collection("user_cart")
@@ -38,12 +37,12 @@ function Checkout(props) {
       batch
         .commit()
         .then(function () {
-          console.log("All documents stored successfully");
+          //consolelog("All documents stored successfully");
           props.emptyCart();
           history.push("/amazon-clone/order");
         })
         .catch(function (error) {
-          console.error("Error writing document: ", error);
+          //consoleerror("Error writing document: ", error);
         });
     } else {
       history.push("/amazon-clone/login", {
@@ -81,7 +80,7 @@ function Checkout(props) {
           })}
           <div className="checkout__confirm">
             <div className="checkout__totalAmount">
-              Total Amount : {`$ ${renderTotalAmount()}`}
+              Total Amount : {`$${renderTotalAmount()}`}
             </div>
             <div className="checkout__confirmBtnDiv">
               <button

@@ -1,7 +1,6 @@
 import React from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
-import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { connect } from "react-redux";
 import history from "../history";
@@ -72,7 +71,7 @@ function Nav(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //consolelog(state);
   return {
     cart: state.cart,
     user: state.user,

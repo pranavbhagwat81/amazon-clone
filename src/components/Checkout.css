@@ -5,7 +5,7 @@
 
 .checkout__list {
   border: 1px solid black;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 40px 50px 40px;
   padding: 15px 15px 15px 15px;
 }
 
@@ -20,6 +20,7 @@
 }
 
 .checkout__pageTitle {
+  display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -51,4 +52,14 @@
   font-size: 30px;
   padding: 10px 10px 10px 10px;
   background-image: linear-gradient(to bottom, #ffc226, #ffd774);
+}
+
+@media only screen and (max-width: 450px) {
+  .product__checkoutPrice {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    font-size: large;
+    padding: 20px;
+  }
 }

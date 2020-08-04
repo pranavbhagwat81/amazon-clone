@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -16,12 +15,12 @@ function Login(props) {
 
   const signIn = (event) => {
     event.preventDefault();
-    console.log(props);
+    //consolelog(props);
     auth
       .signInWithEmailAndPassword(email, password)
       .then((authUser) => {
-        console.log(authUser);
-        console.log(authUser.user.email);
+        //consolelog(authUser);
+        //consolelog(authUser.user.email);
         props.saveLoggedInUser(authUser.user);
         history.push(
           props.location?.state?.prevRoute ||
@@ -47,7 +46,7 @@ function Login(props) {
       </div>
     );
   } else {
-    console.log("in else when no user signed in", props);
+    //consolelog("in else when no user signed in", props);
     return (
       <div className="login">
         <img
@@ -92,7 +91,7 @@ function Login(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.user);
+  //consolelog(state.user);
   return {
     user: state.user,
   };

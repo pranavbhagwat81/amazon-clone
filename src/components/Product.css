@@ -44,7 +44,7 @@
 }
 
 .product__checkoutName {
-  margin-right: 25px;
+  margin-right: auto;
 }
 
 .product__checkoutPrice {
@@ -64,6 +64,7 @@
 .product__quantity {
   margin-right: 15px;
   margin-left: 15px;
+  font-weight: 600;
 }
 
 .product__order {
@@ -78,9 +79,30 @@
 }
 
 .product__orderName {
-  margin-right: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
 }
 
 .product__orderPrice {
-  margin-right: 25px;
+  margin-right: 20px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 450px) {
+  .product__checkoutName {
+    font-size: large;
+  }
+  .product__orderName {
+    margin-right: auto;
+    font-size: large;
+  }
+
+  .product__orderPrice {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

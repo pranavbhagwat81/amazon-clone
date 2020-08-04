@@ -9,11 +9,11 @@ const cartReducer = (state = {}, action) => {
     delete state[action.payload];
     return { ...state };
   }
-  if (action.type == "ADD_PRODUCT_QUANTITY") {
+  if (action.type === "ADD_PRODUCT_QUANTITY") {
     state[action.payload].quantity++;
     return { ...state };
   }
-  if (action.type == "DECREASE_PRODUCT_QUANTITY") {
+  if (action.type === "DECREASE_PRODUCT_QUANTITY") {
     if (state[action.payload].quantity) {
       if (state[action.payload].quantity === 1) {
         delete state[action.payload];

@@ -9,19 +9,19 @@ function Home() {
   useEffect(() => {
     let prods = {};
     db.collection("products").onSnapshot((snapshot) => {
-      console.log(snapshot);
+      //consolelog(snapshot);
       snapshot.docs.forEach((doc) => {
-        //console.log(doc.data());
-        //console.log(doc.data().id);
+        ////consolelog(doc.data());
+        ////consolelog(doc.data().id);
         prods[doc.data().id] = doc.data();
       });
-      console.log(prods);
+      //consolelog(prods);
       setproducts(prods);
     });
   }, []);
 
   if (products) {
-    console.log(products);
+    //consolelog(products);
     return (
       <div className="home">
         <img

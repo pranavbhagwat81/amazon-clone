@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import Product from "./Product";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import "./Checkout.css";
 
 function Order(props) {
   const [orderedProducts, setorderedProducts] = useState(null);
@@ -15,45 +16,13 @@ function Order(props) {
         .collection("products")
         .onSnapshot((snapshot) => {
           snapshot.docs.forEach((doc) => {
-            console.log(doc.data());
+            //consolelog(doc.data());
             productCart[doc.data().id] = doc.data();
           });
           setorderedProducts(productCart);
         });
-      // .then((doc) => {
-      //   console.log(doc.data());
-      //   //setorderedProducts(doc.data());
-      // });
     }
-
-    //WORKING CODE
-    // db.collection("user_cart").onSnapshot((snapshot) => {
-    //   snapshot.docs.forEach((doc) => {
-    //     if(props.user.uid === )
-    //     console.log(doc.id);
-    //     console.log(doc.data());
-    //   });
-    // });
-
-    // db.collection("user_cart").onSnapshot((usercartdocs) => {
-    //   usercartdocs.docs.forEach((usercartdoc) => {
-    //     console.log(usercartdoc.data().userid);
-    //     console.log(usercartdoc.id);
-    //     if (usercartdoc.data().userid === userId) {
-    //       db.collection("user_cart")
-    //         .doc(usercartdoc.id)
-    //         .collection("products")
-    //         .onSnapshot((snapshot) => {
-    //           snapshot.forEach((proddoc) => {
-    //             productsByUser[proddoc.id] = proddoc.data();
-    //             console.log(proddoc.data());
-    //           });
-    //           setorderedProducts(productsByUser);
-    //         });
-    //     }
-    //   });
-    // });
-  }, []);
+  }, [props.user]);
 
   const renderTotalAmount = () => {
     let totalAmount = 0;
@@ -67,10 +36,10 @@ function Order(props) {
 
   if (props.user?.email) {
     if (orderedProducts) {
-      console.log(orderedProducts);
+      //consolelog(orderedProducts);
       return (
         <div className="order">
-          <div className="checkout__pageTitle">Orders with this user</div>
+          <div className="checkout__pageTitle">Orders</div>
           {Object.keys(orderedProducts).length ? (
             <div className="checkout__list">
               {Object.keys(orderedProducts).map((productId) => {
@@ -89,7 +58,7 @@ function Order(props) {
               })}
               <div className="checkout__confirm">
                 <div className="checkout__totalAmount">
-                  Total Amount : {`$ ${renderTotalAmount()}`}
+                  Total Amount : {`$${renderTotalAmount()}`}
                 </div>
                 <div className="checkout__confirmBtnDiv"></div>
               </div>
@@ -103,7 +72,7 @@ function Order(props) {
       return <div>No Orders</div>;
     }
   } else {
-    console.log("in else when no user signed in");
+    //consolelog("in else when no user signed in");
     return (
       <Redirect
         to={{
@@ -116,7 +85,7 @@ function Order(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.user);
+  //consolelog(state.user);
   return {
     user: state.user,
   };

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Signup.css";
 import { auth } from "../firebase";
 import { connect } from "react-redux";
-import { saveLoggedInUser } from "../actions";
 
 function Signup(props) {
   const [email, setemail] = useState("");
@@ -12,15 +11,15 @@ function Signup(props) {
 
   const onSignUp = (event) => {
     event.preventDefault();
-    console.log(email, password);
+    //consolelog(email, password);
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
         authUser.user.updateProfile({ displayName: name });
-        console.log("User created");
+        //consolelog("User created");
       })
       .catch((error) => {
-        console.log(error);
+        //consolelog(error);
         alert(error.message);
       });
   };
@@ -74,7 +73,7 @@ function Signup(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //consolelog(state);
   return {
     user: state.user,
   };

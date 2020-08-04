@@ -10,8 +10,7 @@
 
 .nav__logo {
   cursor: pointer;
-}
-.nav__logo {
+  z-index: 1000;
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 10px;
