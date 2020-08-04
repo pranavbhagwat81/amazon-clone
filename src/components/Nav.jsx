@@ -23,10 +23,10 @@ function Nav(props) {
         alt="amazon_logo"
       />
 
-      <div className="nav__search">
+      {/* <div className="nav__search">
         <input className="nav__searchInput" type="text"></input>
         <SearchIcon className="nav__searchIcon" />
-      </div>
+      </div> */}
       <div className="nav__nav">
         <Link
           to={{
@@ -48,7 +48,7 @@ function Nav(props) {
             <span className="nav__optionLineTwo">Orders</span>
           </div>
         </Link>
-        <Link
+        {/* <Link
           to={{
             pathname: `/amazon-clone/login`,
             prevRoute: "/amazon-clone/",
@@ -59,7 +59,7 @@ function Nav(props) {
             <span className="nav__optionLineOne">Your</span>
             <span className="nav__optionLineTwo">Prime</span>
           </div>
-        </Link>
+        </Link> */}
         <Link to="/amazon-clone/checkout" className="nav__basketContainer">
           <ShoppingBasketIcon className="nav__basketIcon" />
         </Link>

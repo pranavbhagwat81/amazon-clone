@@ -50,6 +50,8 @@
 }
 
 .nav__nav {
+  padding: 20px;
+  margin-left: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

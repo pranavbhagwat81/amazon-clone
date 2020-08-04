@@ -30,19 +30,25 @@ function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/31/prime/Events/Pug/Leadup/GW/3000x1200_main_1x._CB409438475_.jpg"
         ></img>
         <div className="home__row">
-          {Object.keys(products).map((productID) => {
-            return (
-              <Product
-                key={products[productID].id}
-                productIn="home"
-                id={products[productID].id}
-                price={products[productID].price}
-                name={products[productID].name}
-                rating={products[productID].rating}
-                img={products[productID].img}
-              ></Product>
-            );
-          })}
+          <div className="container-fluid">
+            <div className="row">
+              {Object.keys(products).map((productID) => {
+                return (
+                  <div className="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                    <Product
+                      key={products[productID].id}
+                      productIn="home"
+                      id={products[productID].id}
+                      price={products[productID].price}
+                      name={products[productID].name}
+                      rating={products[productID].rating}
+                      img={products[productID].img}
+                    ></Product>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );
