@@ -36,7 +36,7 @@ function Login(props) {
   if (props.user?.displayName) {
     return (
       <div className="app">
-        <Redirect to={props.location.prevRoute} />
+        <Redirect to={props.location?.prevRoute} />
         <Nav />
         <Home />
       </div>
