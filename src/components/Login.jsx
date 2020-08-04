@@ -16,13 +16,18 @@ function Login(props) {
 
   const signIn = (event) => {
     event.preventDefault();
+    console.log(props);
     auth
       .signInWithEmailAndPassword(email, password)
       .then((authUser) => {
         console.log(authUser);
         console.log(authUser.user.email);
         props.saveLoggedInUser(authUser.user);
-        history.push("/amazon-clone/");
+        history.push(
+          props.location?.state?.prevRoute ||
+            props.location?.prevRoute ||
+            "/amazon-clone"
+        );
       })
       .catch((error) => {
         alert(error);
