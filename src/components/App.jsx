@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+import history from "../history";
 import React from "react";
 import Nav from "./Nav";
 import Home from "./Home";
@@ -10,7 +11,7 @@ import Order from "./Order";
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div className="app">
         <Switch>
           <Route path="/checkout" exact>

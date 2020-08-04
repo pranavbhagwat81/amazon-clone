@@ -4,6 +4,9 @@ import "./Checkout.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Order from "./Order";
+import Nav from "./Nav";
+import history from "../history";
 
 function Checkout(props) {
   const renderTotalAmount = () => {
@@ -14,6 +17,13 @@ function Checkout(props) {
         totalAmount;
     });
     return totalAmount;
+  };
+
+  const onOrderConfirm = () => {
+    console.log("In order confirm method");
+    //inserting products in firebase.
+    //REdirect to Orders Page
+    history.push("/order");
   };
 
   if (props.user?.email) {
@@ -49,9 +59,14 @@ function Checkout(props) {
                 Total Amount : {`$ ${renderTotalAmount()}`}
               </div>
               <div className="checkout__confirmBtnDiv">
-                <Link to="/">
-                  <button className="checkout__confirmBtn">Confirm</button>
-                </Link>
+                <button
+                  onClick={() => {
+                    onOrderConfirm();
+                  }}
+                  className="checkout__confirmBtn"
+                >
+                  Confirm
+                </button>
               </div>
             </div>
           </div>
