@@ -24,6 +24,10 @@ const cartReducer = (state = {}, action) => {
       }
     }
   }
+  if (action.type === "EMPTY_PRODUCTS_FROM_CART") {
+    state = {};
+    return { ...state };
+  }
   return state;
 };
 

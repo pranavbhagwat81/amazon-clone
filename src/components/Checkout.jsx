@@ -4,6 +4,7 @@ import "./Checkout.css";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { db } from "../firebase";
+import { emptyCart } from "../actions";
 
 import history from "../history";
 
@@ -38,6 +39,7 @@ function Checkout(props) {
       .commit()
       .then(function () {
         console.log("All documents stored successfully");
+        props.emptyCart();
         history.push("/order");
       })
       .catch(function (error) {
@@ -106,4 +108,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Checkout);
+const mapDispatchToProps = () => {
+  return {
+    emptyCart,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(Checkout);

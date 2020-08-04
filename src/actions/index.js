@@ -11,6 +11,12 @@ export const addProductToCart = (product) => {
   };
 };
 
+export const emptyCart = () => {
+  return {
+    type: "EMPTY_PRODUCTS_FROM_CART",
+  };
+};
+
 export const saveLoggedInUser = (user) => {
   return {
     type: "SAVE_LOGGED_IN_USER",
