@@ -9,6 +9,9 @@
 }
 
 .nav__logo {
+  cursor: pointer;
+}
+.nav__logo {
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 10px;

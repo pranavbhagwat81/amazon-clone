@@ -31,7 +31,7 @@ function Nav(props) {
         <Link
           to={{
             pathname: `/amazon-clone/login`,
-            prevRoute: "/amazon-clone/home",
+            prevRoute: "/amazon-clone/",
           }}
           className="nav__link"
         >
@@ -42,7 +42,7 @@ function Nav(props) {
             </span>
           </div>
         </Link>
-        <Link to={`amazon-clone/order`} className="nav__link">
+        <Link to={`/amazon-clone/order`} className="nav__link">
           <div className="nav__option">
             <span className="nav__optionLineOne">Return</span>
             <span className="nav__optionLineTwo">Orders</span>
@@ -51,7 +51,7 @@ function Nav(props) {
         <Link
           to={{
             pathname: `/amazon-clone/login`,
-            prevRoute: "/amazon-clone/home",
+            prevRoute: "/amazon-clone/",
           }}
           className="nav__link"
         >

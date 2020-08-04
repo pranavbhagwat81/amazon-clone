@@ -22,7 +22,7 @@ function Login(props) {
         console.log(authUser);
         console.log(authUser.user.email);
         props.saveLoggedInUser(authUser.user);
-        history.push("/amazon-clone/home");
+        history.push("/amazon-clone/");
       })
       .catch((error) => {
         alert(error);
