@@ -78,11 +78,12 @@ function Order(props) {
       return <div>No Orders</div>;
     }
   } else {
+    console.log("in else when no user signed in");
     return (
       <Redirect
         to={{
           pathname: "/login",
-          previousRoute: "/order",
+          prevRoute: "/order",
         }}
       />
     );

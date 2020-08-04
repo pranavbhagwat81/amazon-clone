@@ -22,7 +22,13 @@ function Nav(props) {
         <SearchIcon className="nav__searchIcon" />
       </div>
       <div className="nav__nav">
-        <Link to="/login" className="nav__link">
+        <Link
+          to={{
+            pathname: "/login",
+            prevRoute: "/home",
+          }}
+          className="nav__link"
+        >
           <div className="nav__option">
             <span className="nav__optionLineOne">Hello </span>
             <span className="nav__optionLineTwo">
@@ -36,7 +42,13 @@ function Nav(props) {
             <span className="nav__optionLineTwo">Orders</span>
           </div>
         </Link>
-        <Link to="/login" className="nav__link">
+        <Link
+          to={{
+            pathname: "/login",
+            prevRoute: "/home",
+          }}
+          className="nav__link"
+        >
           <div className="nav__option">
             <span className="nav__optionLineOne">Your</span>
             <span className="nav__optionLineTwo">Prime</span>

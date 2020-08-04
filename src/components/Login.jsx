@@ -7,6 +7,7 @@ import { Redirect } from "react-router-dom";
 import { saveLoggedInUser } from "../actions";
 import Nav from "./Nav";
 import Home from "./Home";
+import { withRouter } from "react-router";
 
 function Login(props) {
   const [email, setemail] = useState("");
@@ -29,12 +30,13 @@ function Login(props) {
   if (props.user?.displayName) {
     return (
       <div className="app">
-        <Redirect to="/home" />
+        <Redirect to={props.location.prevRoute} />
         <Nav />
         <Home />
       </div>
     );
   } else {
+    console.log("in else when no user signed in", props);
     return (
       <div className="login">
         <img
@@ -94,4 +96,7 @@ const mapDispatchToProps = () => {
     saveLoggedInUser,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps())(Login);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(withRouter(Login));
