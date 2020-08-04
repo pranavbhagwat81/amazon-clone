@@ -70,7 +70,7 @@ function Order(props) {
       console.log(orderedProducts);
       return (
         <div className="order">
-          <div className="checkout__pageTitle">Order with this user</div>
+          <div className="checkout__pageTitle">Orders with this user</div>
           {Object.keys(orderedProducts).length ? (
             <div className="checkout__list">
               {Object.keys(orderedProducts).map((productId) => {
@@ -107,8 +107,8 @@ function Order(props) {
     return (
       <Redirect
         to={{
-          pathname: "/login",
-          prevRoute: "/order",
+          pathname: "/amazon-clone/login",
+          prevRoute: "/amazon-clone/order",
         }}
       />
     );

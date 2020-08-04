@@ -58,7 +58,7 @@ function Signup(props) {
           className="signup__passwordInput"
           placeholder="Enter Password"
         ></input>
-        <Link to="/login">
+        <Link to={`/amazon-clone/login`}>
           <button
             onClick={(event) => {
               onSignUp(event);

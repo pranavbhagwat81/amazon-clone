@@ -4,19 +4,25 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { connect } from "react-redux";
+import history from "../history";
 
 function Nav(props) {
+  const onLogoClick = () => {
+    history.push("/amazon-clone/");
+  };
+
   return (
     <nav className="nav">
       {/**logo */}
       {/**searchbar */}
-      <Link to="/">
-        <img
-          className="nav__logo"
-          src="https://wildfiresocial.com/wp-content/uploads/2019/01/amazon-logo-white._cb1509666198_.png"
-          alt="amazon_logo"
-        />
-      </Link>
+
+      <img
+        onClick={onLogoClick}
+        className="nav__logo"
+        src="https://wildfiresocial.com/wp-content/uploads/2019/01/amazon-logo-white._cb1509666198_.png"
+        alt="amazon_logo"
+      />
+
       <div className="nav__search">
         <input className="nav__searchInput" type="text"></input>
         <SearchIcon className="nav__searchIcon" />
@@ -24,8 +30,8 @@ function Nav(props) {
       <div className="nav__nav">
         <Link
           to={{
-            pathname: "/login",
-            prevRoute: "/home",
+            pathname: `/amazon-clone/login`,
+            prevRoute: "/amazon-clone/home",
           }}
           className="nav__link"
         >
@@ -36,7 +42,7 @@ function Nav(props) {
             </span>
           </div>
         </Link>
-        <Link to="/order" className="nav__link">
+        <Link to={`amazon-clone/order`} className="nav__link">
           <div className="nav__option">
             <span className="nav__optionLineOne">Return</span>
             <span className="nav__optionLineTwo">Orders</span>
@@ -44,8 +50,8 @@ function Nav(props) {
         </Link>
         <Link
           to={{
-            pathname: "/login",
-            prevRoute: "/home",
+            pathname: `/amazon-clone/login`,
+            prevRoute: "/amazon-clone/home",
           }}
           className="nav__link"
         >
@@ -54,7 +60,7 @@ function Nav(props) {
             <span className="nav__optionLineTwo">Prime</span>
           </div>
         </Link>
-        <Link to="/checkout" className="nav__basketContainer">
+        <Link to="/amazon-clone/checkout" className="nav__basketContainer">
           <ShoppingBasketIcon className="nav__basketIcon" />
         </Link>
         <span className="nav__basket__itemcount">

@@ -8,6 +8,7 @@ import { saveLoggedInUser } from "../actions";
 import Nav from "./Nav";
 import Home from "./Home";
 import { withRouter } from "react-router";
+import history from "../history";
 
 function Login(props) {
   const [email, setemail] = useState("");
@@ -21,10 +22,15 @@ function Login(props) {
         console.log(authUser);
         console.log(authUser.user.email);
         props.saveLoggedInUser(authUser.user);
+        history.push("/amazon-clone/home");
       })
       .catch((error) => {
         alert(error);
       });
+  };
+
+  const onSignUp = () => {
+    history.push("/amazon-clone/signup");
   };
 
   if (props.user?.displayName) {
@@ -61,24 +67,20 @@ function Login(props) {
             className="login__passwordInput"
             placeholder="Enter Password"
           ></input>
-          <Link to="/home" className="nav__link">
-            <div
-              className="login__signupBtn"
-              onClick={(e) => {
-                signIn(e);
-              }}
-            >
-              Continue
-            </div>
-          </Link>
+          <div
+            className="login__signupBtn"
+            onClick={(e) => {
+              signIn(e);
+            }}
+          >
+            Continue
+          </div>
         </form>
         <span className="login__signUpDirection">New To Amazon?</span>
 
-        <Link to="/signup">
-          <button className="login__signupBtn">
-            Create your Amazon account
-          </button>
-        </Link>
+        <button onClick={onSignUp} className="login__signupBtn">
+          Create your Amazon account
+        </button>
       </div>
     );
   }

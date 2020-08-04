@@ -40,7 +40,7 @@ function Checkout(props) {
       .then(function () {
         console.log("All documents stored successfully");
         props.emptyCart();
-        history.push("/order");
+        history.push("/amazon-clone/order");
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);
@@ -97,7 +97,14 @@ function Checkout(props) {
       </div>
     );
   } else {
-    return <Redirect to={{ pathname: "/login", prevRoute: "/checkout" }} />;
+    return (
+      <Redirect
+        to={{
+          pathname: "/amazon-clone/login",
+          prevRoute: "/amazon-clone/checkout",
+        }}
+      />
+    );
   }
 }
 

@@ -14,25 +14,25 @@ function App() {
     <Router history={history}>
       <div className="app">
         <Switch>
-          <Route path="/checkout" exact>
+          <Route path={`/amazon-clone/checkout`} exact>
             <Nav />
             <Checkout />
           </Route>
-          <Route path="/signup" exact>
+          <Route path={`/amazon-clone/signup`} exact>
             <Signup />
           </Route>
-          <Route path="/login" exact>
+          <Route path={`/amazon-clone/login`} exact>
             <Login />
           </Route>
-          <Route path="/" exact>
+          <Route path={`/amazon-clone/`} exact>
             <Nav />
             <Home />
           </Route>
-          <Route path="/home" exact>
+          <Route path={`/amazon-clone/home`} exact>
             <Nav />
             <Home />
           </Route>
-          <Route path="/order">
+          <Route path={`/amazon-clone/order`}>
             <Nav />
             <Order />
           </Route>
