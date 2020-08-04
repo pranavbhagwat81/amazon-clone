@@ -29,6 +29,7 @@ function Checkout(props) {
             if (props.cart[productId].quantity > 0) {
               return (
                 <Product
+                  key={props.cart[productId].id}
                   productIn="checkout"
                   id={props.cart[productId].id}
                   price={props.cart[productId].price}

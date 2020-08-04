@@ -33,6 +33,7 @@ function Home() {
           {Object.keys(products).map((productID) => {
             return (
               <Product
+                key={products[productID].id}
                 productIn="home"
                 id={products[productID].id}
                 price={products[productID].price}

@@ -32,6 +32,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/order">
+            <Nav />
             <Order />
           </Route>
         </Switch>

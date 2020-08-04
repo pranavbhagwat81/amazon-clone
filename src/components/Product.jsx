@@ -65,9 +65,9 @@ function Product(props) {
         <div className="product__rating">
           {Array(props.rating)
             .fill("")
-            .map(() => {
+            .map((item, index) => {
               return (
-                <span role="img" aria-label="star">
+                <span key={index} role="img" aria-label="star">
                   ⭐
                 </span>
               );
