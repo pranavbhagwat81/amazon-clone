@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { db } from "../firebase";
 import { emptyCart } from "../actions";
 import history from "../history";
+import { Link } from "react-router-dom";
 
 function Checkout(props) {
   const renderTotalAmount = () => {
@@ -53,11 +54,13 @@ function Checkout(props) {
 
   return (
     <div className="orderedProducts">
-      <img
-        src="https://pngimg.com/uploads/amazon/amazon_PNG6.png"
-        alt="amazon_logo"
-        className="checkout__logo"
-      />
+      <Link to="/amazon-clone/">
+        <img
+          src="https://pngimg.com/uploads/amazon/amazon_PNG6.png"
+          alt="amazon_logo"
+          className="checkout__logo"
+        />
+      </Link>
       <div className="checkout__pageTitle">CheckOut</div>
       {Object.keys(props.cart).length ? (
         <div className="checkout__list">

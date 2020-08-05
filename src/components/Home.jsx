@@ -53,7 +53,7 @@ function Home() {
       </div>
     );
   } else {
-    return <div>Loading....</div>;
+    return <div className="home__loader">Loading....</div>;
   }
 }
 
