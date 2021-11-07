@@ -18,7 +18,7 @@ function Nav(props) {
       <img
         onClick={onLogoClick}
         className="nav__logo"
-        src="https://wildfiresocial.com/wp-content/uploads/2019/01/amazon-logo-white._cb1509666198_.png"
+        src="http://wildfiresocial.com/wp-content/uploads/2019/01/amazon-logo-white._cb1509666198_.png"
         alt="amazon_logo"
       />
 
